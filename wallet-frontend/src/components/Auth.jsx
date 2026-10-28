@@ -1,4 +1,4 @@
-
+﻿
 import { useState } from 'react';
 
 function Auth({ onLogin }) {
@@ -38,7 +38,7 @@ if (!isLogin) {
 }
 
 const response = await fetch(
-  `http://localhost:8080/api/auth/${endpoint}`,
+  `https://digital-wallet-expense-tracker-2.onrender.com/api/auth/${endpoint}`,
   {
     method: 'POST',
     headers: {
@@ -142,3 +142,4 @@ const data = await response.json();
 }
 
 export default Auth;
+
