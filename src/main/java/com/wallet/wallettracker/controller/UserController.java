@@ -3,13 +3,18 @@ package com.wallet.wallettracker.controller;
 
 import com.wallet.wallettracker.entity.User;
 import com.wallet.wallettracker.entity.RegisterResponse;
+import com.wallet.wallettracker.entity.LoginResponse;
 import com.wallet.wallettracker.service.UserService;
 import org.springframework.web.bind.annotation.*;
-import com.wallet.wallettracker.entity.LoginResponse;
 
 @RestController
 @RequestMapping("/api/auth")
-@CrossOrigin(origins = "http://localhost:5175")
+@CrossOrigin(origins = {
+        "http://localhost:5173",
+        "http://127.0.0.1:5173",
+        "http://localhost:5175",
+        "http://127.0.0.1:5175"
+})
 public class UserController {
 
     private final UserService userService;
@@ -32,7 +37,6 @@ public class UserController {
                 user.getEmail(),
                 "Registration successful"
         );
-
     }
 
     @PostMapping("/login")
@@ -49,7 +53,4 @@ public class UserController {
                 "Login successful"
         );
     }
-
 }
-
-
